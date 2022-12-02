@@ -33,7 +33,7 @@ public class UserService {
     public Principal login(NewLoginRequest req) {
         User validUser = userDAO.getUserByUsernameAndPassword(req.getUsername(), req.getPassword());
         if (validUser == null) throw new InvalidAuthException("Invalid username or password.");
-        return new Principal(validUser.getId(), validUser.getUsername(),  validUser.getRole(), .getAuthID());
+        return new Principal(validUser.getId(), validUser.getUsername(),  validUser.getRole(), validUser.getAuthID());
     }
 
     public List<User> getAllUsers() {
