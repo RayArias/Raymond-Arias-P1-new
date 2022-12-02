@@ -1,9 +1,9 @@
-package daos;
+package com.revature.erts.daos;
 
 import com.revature.erts.utils.ConnectionFactory;
 import com.revature.erts.daos.CrudDAO;
-import models.DatatypeCrossRef;
-import models.User;
+import com.revature.erts.models.DatatypeCrossRef;
+import com.revature.erts.models.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -64,7 +64,7 @@ public class UserDAO implements CrudDAO<User>{
     }
 
     public User findById(String userUUID) {
-        User user;
+        User user = null;
 
         try (Connection con = ConnectionFactory.getInstance().getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM users WHERE id = ?");

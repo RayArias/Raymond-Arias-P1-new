@@ -1,4 +1,4 @@
-package java.com.revature.erts.utils.custom_exceptions;
+package com.revature.erts.utils.custom_exceptions;
 
 public class InvalidReimbursementTypeException extends RuntimeException {
     public InvalidReimbursementTypeException() {

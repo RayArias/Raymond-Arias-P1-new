@@ -1,3 +1,3 @@
-package java.com.revature.erts.models;
+package com.revature.erts.models;
 
 public enum Status { PENDING, APPROVED, DENIED }

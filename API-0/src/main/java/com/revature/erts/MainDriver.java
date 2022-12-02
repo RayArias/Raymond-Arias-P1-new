@@ -1,7 +1,7 @@
 package com.revature.erts;
 
 import com.revature.erts.utils.ConnectionFactory;
-import utils.Router;
+import com.revature.erts.utils.Router;
 import io.javalin.Javalin;
 
 /* purpose of this class is to start our application */

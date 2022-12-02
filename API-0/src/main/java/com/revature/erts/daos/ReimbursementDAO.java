@@ -1,10 +1,10 @@
 
-package java.com.revature.erts.daos;
+package com.revature.erts.daos;
 
 import com.revature.erts.models.ReimbursementType;
-import java.com.revature.erts.models.Status;
+import com.revature.erts.models.Status;
 import com.revature.erts.models.Reimbursement;
-import models.DatatypeCrossRef;
+import com.revature.erts.models.DatatypeCrossRef;
 import com.revature.erts.utils.ConnectionFactory;
 import com.revature.erts.daos.CrudDAO;
 

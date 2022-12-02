@@ -1,15 +1,15 @@
-package services;
+package com.revature.erts.services;
 
-import java.com.revature.erts.daos.ReimbursementDAO;
+import com.revature.erts.daos.ReimbursementDAO;
 import com.revature.erts.dtos.requests.NewReimbursementRequest;
-import dtos.responses.ReimbursementResponse;
-import services.UserService;
-import java.com.revature.erts.models.Status;
+import com.revature.erts.dtos.responses.ReimbursementResponse;
+import com.revature.erts.services.UserService;
+import com.revature.erts.models.Status;
 import com.revature.erts.models.ReimbursementType;
 import com.revature.erts.models.Reimbursement;
-import models.User;
+import com.revature.erts.models.User;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
-import utils.custom_exceptions.InvalidReimbursementTicketException;
+import com.revature.erts.utils.custom_exceptions.InvalidReimbursementTicketException;
 
 import java.util.List;
 import java.util.UUID;
@@ -30,7 +30,7 @@ public class ReimbursementService {
         long now = System.currentTimeMillis();
         Timestamp makeTime = new Timestamp(now);
         Reimbursement createdReimbursement = new Reimbursement(UUID.randomUUID().toString(), req.getAmount(),
-                req.getDescription(), req.getTypeID(), Status.PENDING, req.getUserID());
+                req.getDescription(), req.getBytes(), req.getTypeID(), Status.PENDING, req.getUserID());
         ReimbursementDAO.save(createdReimbursement);
         return createdReimbursement;
     }

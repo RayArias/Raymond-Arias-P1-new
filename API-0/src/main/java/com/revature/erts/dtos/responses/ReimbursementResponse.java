@@ -1,8 +1,8 @@
-package dtos.responses;
+package com.revature.erts.dtos.responses;
 
-import models.DatatypeCrossRef;
+import com.revature.erts.models.DatatypeCrossRef;
 import com.revature.erts.models.ReimbursementType;
-import java.com.revature.erts.models.Status;
+import com.revature.erts.models.Status;
 
 import javax.sql.rowset.serial.SerialBlob;
 import java.sql.Timestamp;

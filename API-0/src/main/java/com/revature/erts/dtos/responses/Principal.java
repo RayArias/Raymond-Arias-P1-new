@@ -1,7 +1,7 @@
-package dtos.responses;
+package com.revature.erts.dtos.responses;
 
 import com.revature.erts.models.UserRole;
-import models.DatatypeCrossRef;
+import com.revature.erts.models.DatatypeCrossRef;
 
 public class Principal {
     private String userUUID;
@@ -21,10 +21,11 @@ public class Principal {
         this.authID    = authID;
     }
 
-    public Principal(String userUUID, String username, String roleUUID) {
+    public Principal(String userUUID, String username, String roleUUID, String authID) {
         this.userUUID = userUUID;
         this.username = username;
         this.role     = DatatypeCrossRef.userRoleUUID2Enum(roleUUID);
+        this.authID   = authID;
     }
 
     public String getUserUUID() {

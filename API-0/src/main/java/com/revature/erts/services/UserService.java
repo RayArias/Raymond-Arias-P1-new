@@ -1,12 +1,12 @@
-package services;
+package com.revature.erts.services;
 
-import daos.UserDAO;
+import com.revature.erts.daos.UserDAO;
 import com.revature.erts.dtos.requests.NewLoginRequest;
 import com.revature.erts.dtos.requests.NewUserRequest;
-import dtos.responses.Principal;
+import com.revature.erts.dtos.responses.Principal;
 import com.revature.erts.models.UserRole;
-import models.User;
-import models.DatatypeCrossRef;
+import com.revature.erts.models.User;
+import com.revature.erts.models.DatatypeCrossRef;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 import com.revature.erts.utils.custom_exceptions.InvalidUserException;
 

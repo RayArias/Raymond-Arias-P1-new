@@ -1,19 +1,15 @@
-package models;
+package com.revature.erts.models;
 
-import com.revature.erts.models.UserRole;
-import com.revature.erts.models.ReimbursementType;
-import java.com.revature.erts.models.Status;
+import static com.revature.erts.models.UserRole.*;
+import static com.revature.erts.models.ReimbursementType.*;
+import static com.revature.erts.models.Status.*;
 import com.revature.erts.utils.custom_exceptions.InvalidReimbursementStatusException;
-import java.com.revature.erts.utils.custom_exceptions.InvalidReimbursementTypeException;
-import java.com.revature.erts.utils.custom_exceptions.InvalidUserRoleException;
+import com.revature.erts.utils.custom_exceptions.InvalidReimbursementTypeException;
+import com.revature.erts.utils.custom_exceptions.InvalidUserRoleException;
 
 import java.lang.String;
 import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
-
-import static com.revature.erts.models.ReimbursementType.*;
-import static com.revature.erts.models.UserRole.*;
-import static java.com.revature.erts.models.Status.*;
 
 public class DatatypeCrossRef {
 

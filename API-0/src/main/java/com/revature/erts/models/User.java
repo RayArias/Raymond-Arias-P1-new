@@ -1,7 +1,7 @@
-package models;
+package com.revature.erts.models;
 
 import com.revature.erts.models.UserRole;
-import models.DatatypeCrossRef;
+import com.revature.erts.models.DatatypeCrossRef;
 
 public class User {
     private String id;
@@ -11,6 +11,7 @@ public class User {
     private String surname;
     private String password;
     private UserRole role;
+    private String authID;
 
     public User() {
         super();
@@ -38,6 +39,17 @@ public class User {
         this.role = DatatypeCrossRef.userRoleUUID2Enum(roleUUID);
     }
 
+    public User(String id, String username, String email, String givenName, String surname, String password,
+                UserRole role, String authID) {
+        this.id        = id;
+        this.username  = username;
+        this.email     = email;
+        this.givenName = givenName;
+        this.surname   = surname;
+        this.password  = password;
+        this.role      = role;
+        this.authID    = authID;
+    }
     public String getId() {
         return id;
     }
@@ -84,6 +96,8 @@ public class User {
     public String getRoleText() { DatatypeCrossRef.userRoleEnum2Text(this.role); }
 
     public void setRoleByText(String roleText) { this.role = DatatypeCrossRef.userRoleText2Enum(roleText); }
+
+    public String getAuthID() { return this.authID; }
 
     @Override
     public String toString() {

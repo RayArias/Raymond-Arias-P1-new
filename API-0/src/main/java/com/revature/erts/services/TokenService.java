@@ -1,7 +1,7 @@
-package services;
+package com.revature.erts.services;
 
-import dtos.responses.Principal;
-import models.DatatypeCrossRef;
+import com.revature.erts.dtos.responses.Principal;
+import com.revature.erts.models.DatatypeCrossRef;
 import com.revature.erts.models.UserRole;
 import com.revature.erts.utils.JwtConfig;
 
@@ -42,7 +42,7 @@ public class TokenService {
                     .parseClaimsJws(token)
                     .getBody();
             return new Principal(claims.getUserID(), claims.getSubject(),
-                    DatatypeCrossRef.userRoleUUID2Enum(claims.get("user_role", String.class)));
+                    DatatypeCrossRef.userRoleUUID2Enum(claims.getUserRoleUUID("user_role", String.class)));
         } catch (Exception e) {
             return null;
         }

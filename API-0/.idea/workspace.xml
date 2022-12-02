@@ -23,6 +23,17 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="delegateBuildToMaven" value="true" />
+    <option name="jreName" value="#JAVA_HOME" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
@@ -41,7 +52,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_directory_selection": "C:/Users/Ray/Documents/GitHub/Raymond-Arias-P1/API-0/src/main/java/com/revature/erts",
     "last_opened_file_path": "C:/Users/Ray/Documents/GitHub/Raymond-Arias-P1/API-0/src/main/java/com/revature",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -57,7 +71,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="MainDriver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="MainDriver" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.revature.erts.MainDriver" />
       <module name="API-0" />
       <extension name="coverage">
@@ -70,11 +86,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.MainDriver" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -89,5 +100,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -1,10 +1,10 @@
-package handlers;
+package com.revature.erts.handlers;
 
 import com.revature.erts.dtos.requests.NewLoginRequest;
-import dtos.responses.Principal;
-import services.TokenService;
-import services.UserService;
-import models.User;
+import com.revature.erts.dtos.responses.Principal;
+import com.revature.erts.services.TokenService;
+import com.revature.erts.services.UserService;
+import com.revature.erts.models.User;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

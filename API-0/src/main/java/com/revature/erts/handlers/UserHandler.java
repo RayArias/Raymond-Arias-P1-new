@@ -1,11 +1,11 @@
-package handlers;
+package com.revature.erts.handlers;
 
 import com.revature.erts.dtos.requests.NewUserRequest;
-import dtos.responses.Principal;
+import com.revature.erts.dtos.responses.Principal;
 import com.revature.erts.models.UserRole;
-import models.User;
-import services.TokenService;
-import services.UserService;
+import com.revature.erts.models.User;
+import com.revature.erts.services.TokenService;
+import com.revature.erts.services.UserService;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 import com.revature.erts.utils.custom_exceptions.InvalidUserException;
 
