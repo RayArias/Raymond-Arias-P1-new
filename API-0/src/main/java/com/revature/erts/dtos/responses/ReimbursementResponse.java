@@ -93,7 +93,7 @@ public class ReimbursementResponse {
 
     public void setSubmitted(Timestamp submitted) { this.submitted = submitted; }
 
-    public String getSubmitterUUID() { return this.submitterUUID(); }
+    public String getSubmitterUUID() { return this.submitterUUID; }
 
     public void setSubmitterUUID(String submitterUUID) { this.submitterUUID = submitterUUID; }
 

@@ -46,7 +46,7 @@ public class Reimbursement {
         this.reimbursementUUID = reimbursementUUID;
         this.amount = DatatypeCrossRef.moneyFloat2Int(amount);
         this.description = description;
-        this.receipt = SerialBlob(receiptByteArray);
+        this.receipt = DatatypeCrossRef.byteArray2SerialBlob(receiptByteArray);
         this.paymentID = paymentID;
         this.type = DatatypeCrossRef.typeUUID2Enum(typeUUID);
         this.status = DatatypeCrossRef.statusUUID2Enum(statusUUID);

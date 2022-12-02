@@ -18,11 +18,24 @@ public class User {
 
     public User(String id, String username, String email, String givenName, String surname, String password,
                 UserRole role) {
-        this.id       = id;
+        this.id        = id;
+        this.username  = username;
+        this.email     = email;
+        this.givenName = givenName;
+        this.surname   = surname;
+        this.password  = password;
+        this.role      = role;
+    }
+
+    public User(String id, String username, String email, String givenName, String surname, String password,
+                String roleUUID) {
+        this.id = id;
         this.username = username;
-        this.email    = email;
+        this.email = email;
+        this.givenName = givenName;
+        this.surname = surname;
         this.password = password;
-        this.role     = role;
+        this.role = DatatypeCrossRef.userRoleUUID2Enum(roleUUID);
     }
 
     public String getId() {
@@ -64,6 +77,14 @@ public class User {
         this.role = role;
     }
 
+    public String getRoleUUID() { return DatatypeCrossRef.userRoleEnum2UUID(this.role); }
+
+    public void setRoleByUUID(String roleUUID) { this.role = DatatypeCrossRef.userRoleUUID2Enum(roleUUID); }
+
+    public String getRoleText() { DatatypeCrossRef.userRoleEnum2Text(this.role); }
+
+    public void setRoleByText(String roleText) { this.role = DatatypeCrossRef.userRoleText2Enum(roleText); }
+
     @Override
     public String toString() {
         return "User{" +
@@ -72,8 +93,8 @@ public class User {
                 ", email='" + this.email + '\'' +
                 ", givenName='" + this.givenName + '\'' +
                 ", surname='" + this.surname + '\'' +
-                ", roleUUID=" + DatatypeCrossRef.userRoleEnum2UUID(role) + '\'' +
-                ", roleText=" + DatatypeCrossRef.userRoleEnum2Text(role) + '\'' +
+                ", roleUUID=" + getRoleUUID() + '\'' +
+                ", roleText=" + getRoleText() + '\'' +
                 '}';
     }
 }

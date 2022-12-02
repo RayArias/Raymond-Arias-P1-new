@@ -41,7 +41,7 @@ public class TokenService {
                     .setSigningKey(jwtConfig.getSigningKey())
                     .parseClaimsJws(token)
                     .getBody();
-            return new Principal(claims.getUserUUID(), claims.getSubject(),
+            return new Principal(claims.getUserID(), claims.getSubject(),
                     DatatypeCrossRef.userRoleUUID2Enum(claims.get("user_role", String.class)));
         } catch (Exception e) {
             return null;

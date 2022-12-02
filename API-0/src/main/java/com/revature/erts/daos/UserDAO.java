@@ -72,8 +72,10 @@ public class UserDAO implements CrudDAO<User>{
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                user = new User(rs.getString("id"), rs.getString("email"), rs.getString("username"),
-                        rs.getString("given_name"), rs.getString("surname"), rs.getString("role_id"));
+                user = new User(rs.getString("id"), rs.getString("username"),
+                        rs.getString("email"), rs.getString("given_name"),
+                        rs.getString("surname"), rs.getString("password"),
+                        rs.getString("role_id"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -90,8 +92,10 @@ public class UserDAO implements CrudDAO<User>{
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                User currentUser = new User(rs.getString("id"), rs.getString("email"), rs.getString("username"),
-                        rs.getString("given_name"), rs.getString("surname"), rs.getString("role_id"));
+                User currentUser = new User(rs.getString("id"), rs.getString("username"),
+                        rs.getString("email"), rs.getString("given_name"),
+                        rs.getString("surname"), rs.getString("password"),
+                        rs.getString("role_id"));
                 users.add(currentUser);
             }
         } catch (SQLException e) {
@@ -130,8 +134,10 @@ public class UserDAO implements CrudDAO<User>{
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                user = new User(rs.getString("id"), rs.getString("username"), rs.getString("email"),
-                        rs.getString("given_name"), rs.getString("surname"), rs.getString("role_id"));
+                user = new User(rs.getString("id"), rs.getString("username"),
+                        rs.getString("email"), rs.getString("given_name"),
+                        rs.getString("surname"), rs.getString("password"),
+                        rs.getString("role_id"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -147,8 +153,10 @@ public class UserDAO implements CrudDAO<User>{
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                User user = new User(rs.getString("id"), rs.getString("username"), rs.getString("email"),
-                        rs.getString("given_name"), rs.getString("surname"), rs.getString("role_id"));
+                User user = new User(rs.getString("id"), rs.getString("username"),
+                        rs.getString("email"), rs.getString("given_name"),
+                        rs.getString("surname"), rs.getString("password"),
+                        rs.getString("role_id"));
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -165,8 +173,10 @@ public class UserDAO implements CrudDAO<User>{
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                User user = new User(rs.getString("id"), rs.getString("username"), rs.getString("email"),
-                        rs.getString("given_name"), rs.getString("surname"), rs.getString("role_id"));
+                User user = new User(rs.getString("id"), rs.getString("username"),
+                        rs.getString("email"), rs.getString("given_name"),
+                        rs.getString("surname"), rs.getString("password"),
+                        rs.getString("role_id"));
                 users.add(user);
             }
         } catch (SQLException e) {
