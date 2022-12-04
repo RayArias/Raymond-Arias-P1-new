@@ -8,6 +8,7 @@ import com.revature.erts.utils.custom_exceptions.InvalidReimbursementTypeExcepti
 import com.revature.erts.utils.custom_exceptions.InvalidUserRoleException;
 
 import java.lang.String;
+import java.sql.SQLException;
 import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
 
@@ -37,7 +38,6 @@ public class DatatypeCrossRef {
 
             default:
                 throw new InvalidReimbursementTypeException("Invalid Reimbursement Text string.");
-                break;
         }
         return type;
     }
@@ -87,7 +87,6 @@ public class DatatypeCrossRef {
 
             default:
                 throw new InvalidReimbursementTypeException("Invalid Reimbursement Type Text string.");
-                break;
         }
         return typeUUID;
     }
@@ -137,7 +136,6 @@ public class DatatypeCrossRef {
 
             default:
                 throw new InvalidReimbursementTypeException("Invalid Reimbursement Type UUID string.");
-                break;
         }
         return reimbrsmntTypeText;
     }
@@ -164,7 +162,6 @@ public class DatatypeCrossRef {
 
             default:
                 throw new InvalidReimbursementTypeException("Invalid Reimbursement Type UUID string.");
-                break;
         }
         return type;
     }
@@ -230,7 +227,6 @@ public class DatatypeCrossRef {
 
             default:
                 throw new InvalidReimbursementStatusException("Invalid Reimbursement Status Text string.");
-                break;
         }
         return statusUUID;
     }
@@ -274,7 +270,6 @@ public class DatatypeCrossRef {
 
             default:
                 throw new InvalidReimbursementStatusException("Invalid Reimbursement Status UUID string.");
-                break;
         }
         return status;
     }
@@ -321,7 +316,6 @@ public class DatatypeCrossRef {
 
             default:
                 throw new InvalidUserRoleException("Invalid User Role Text string.");
-                break;
         }
         return userRole;
     }
@@ -364,7 +358,6 @@ public class DatatypeCrossRef {
 
             default:
                 throw new InvalidUserRoleException("Invalid User Role Text string.");
-                break;
         }
         return roleUUID;
     }
@@ -407,7 +400,6 @@ public class DatatypeCrossRef {
 
             default:
                 throw new InvalidUserRoleException("Invalid User Role UUID string.");
-                break;
         }
         return userRole;
     }
@@ -430,9 +422,7 @@ public class DatatypeCrossRef {
 
             default:
                 throw new InvalidUserRoleException("Invailid User Role UUID string.");
-                break;
         }
-
         return roleText;
     }
 
@@ -460,15 +450,23 @@ public class DatatypeCrossRef {
         return i;
     }
 
-    public static SerialBlob byteArray2SerialBlob(byte[] bytearr) {
-        SerialBlob output;
-        output.setBytes(0L, bytearr);
-        return output;
+    public static SerialBlob byteArray2SerialBlob(byte[] bytearr) throws SQLException {
+        SerialBlob output = null;
+        try {
+            output.setBytes(0L, bytearr);
+            return output;
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static byte[] serialBlob2ByteArray(SerialBlob sblob) throws SerialException {
-        byte[] bytearr;
-        bytearr = sblob.getBytes(0L, sblob.length());
-        return bytearr;
+        try {
+            return sblob.getBytes(0L, (int)sblob.length());
+        } catch(SerialException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -93,7 +93,7 @@ public class User {
 
     public void setRoleByUUID(String roleUUID) { this.role = DatatypeCrossRef.userRoleUUID2Enum(roleUUID); }
 
-    public String getRoleText() { DatatypeCrossRef.userRoleEnum2Text(this.role); }
+    public String getRoleText() { return DatatypeCrossRef.userRoleEnum2Text(this.role); }
 
     public void setRoleByText(String roleText) { this.role = DatatypeCrossRef.userRoleText2Enum(roleText); }
 

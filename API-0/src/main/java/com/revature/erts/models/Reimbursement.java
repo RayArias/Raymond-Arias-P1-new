@@ -5,6 +5,7 @@ import com.revature.erts.models.ReimbursementType;
 import com.revature.erts.models.DatatypeCrossRef;
 
 import javax.sql.rowset.serial.SerialBlob;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 
 public class Reimbursement {
@@ -42,7 +43,7 @@ public class Reimbursement {
 
     public Reimbursement(String reimbursementUUID, float amount, String description, byte[] receiptByteArray,
                          String paymentID, String typeUUID, String statusUUID, Timestamp submitted,
-                         String submitterUUID, Timestamp resolved, String resolverUUID) {
+                         String submitterUUID, Timestamp resolved, String resolverUUID) throws SQLException {
         this.reimbursementUUID = reimbursementUUID;
         this.amount = DatatypeCrossRef.moneyFloat2Int(amount);
         this.description = description;
@@ -54,6 +55,20 @@ public class Reimbursement {
         this.submitterUUID = submitterUUID;
         this.resolved = resolved;
         this.resolverUUID = resolverUUID;
+    }
+
+    public Reimbursement(String reimbursementUUID, float amount, String description, byte[] receiptByteArray,
+                         String paymentID, String typeUUID, String statusUUID, Timestamp submitted,
+                         String submitterUUID) throws SQLException {
+        this.reimbursementUUID = reimbursementUUID;
+        this.amount = DatatypeCrossRef.moneyFloat2Int(amount);
+        this.description = description;
+        this.receipt = DatatypeCrossRef.byteArray2SerialBlob(receiptByteArray);
+        this.paymentID = paymentID;
+        this.type = DatatypeCrossRef.typeUUID2Enum(typeUUID);
+        this.status = DatatypeCrossRef.statusUUID2Enum(statusUUID);
+        this.submitted = submitted;
+        this.submitterUUID = submitterUUID;
     }
 
     public String getReimbursementUUID() {

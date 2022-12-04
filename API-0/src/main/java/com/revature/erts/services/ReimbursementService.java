@@ -3,14 +3,12 @@ package com.revature.erts.services;
 import com.revature.erts.daos.ReimbursementDAO;
 import com.revature.erts.dtos.requests.NewReimbursementRequest;
 import com.revature.erts.dtos.responses.ReimbursementResponse;
+import com.revature.erts.models.*;
 import com.revature.erts.services.UserService;
-import com.revature.erts.models.Status;
-import com.revature.erts.models.ReimbursementType;
-import com.revature.erts.models.Reimbursement;
-import com.revature.erts.models.User;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 import com.revature.erts.utils.custom_exceptions.InvalidReimbursementTicketException;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
 import java.sql.Timestamp;
@@ -21,17 +19,26 @@ public class ReimbursementService {
     /* dependency injection = when a class is dependent on another class */
     private final ReimbursementDAO reimbursementDAO;
 
-    public ReimbursementService() { super(); }
+    public ReimbursementService() {
+        super();
+        this.reimbursementDAO = null;
+    }
     public ReimbursementService(ReimbursementDAO reimbursementDAO) {
         this.reimbursementDAO = reimbursementDAO;
     }
 
-    public Reimbursement newReimbursement(NewReimbursementRequest req) {
+    public Reimbursement newReimbursement(NewReimbursementRequest req) throws SQLException {
         long now = System.currentTimeMillis();
         Timestamp makeTime = new Timestamp(now);
-        Reimbursement createdReimbursement = new Reimbursement(UUID.randomUUID().toString(), req.getAmount(),
-                req.getDescription(), req.getBytes(), req.getTypeID(), Status.PENDING, req.getUserID());
-        ReimbursementDAO.save(createdReimbursement);
+        Reimbursement createdReimbursement = null;
+        try {
+            createdReimbursement = new Reimbursement(UUID.randomUUID().toString(), req.getAmount(),
+                    req.getDescription(), req.getReceiptByteArray(), req.getPaymentID(), req.getTypeID(),
+                    DatatypeCrossRef.statusEnum2UUID(Status.PENDING), req.getSubmitted(), req.getSubmitterID());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        reimbursementDAO.save(createdReimbursement);
         return createdReimbursement;
     }
 
@@ -40,23 +47,23 @@ public class ReimbursementService {
     }
 
     public List<Reimbursement> getAllReimbursementsByUserUUID(String userUUID) {
-        return ReimbursementDAO.getAllReimbursementsByUserUUID(userUUID);
+        return reimbursementDAO.getAllReimbursementsByUserUUID(userUUID);
     }
 
     public List<Reimbursement> getAllReimbursementsByStatusUUID(String statusUUID) {
-        return ReimbursementDAO.getAllReimbursementsbyStatusUUID(statusUUID);
+        return reimbursementDAO.getAllReimbursementsByStatusUUID(statusUUID);
     }
 
     public List<Reimbursement> getAllReimbursementsByUserUUIDAndStatusUUID(String userUUID, String statusUUID) {
-        return ReimbursementDAO.getAllReimbursementsByUserUUIDAndStatusID(userUUID, statusUUID);
+        return reimbursementDAO.getAllReimbursementsByUserUUIDAndStatusUUID(userUUID, statusUUID);
     }
 
-    public List<Reimbursement> getAllReimbursementsBySubmittedDate(Timestamp submitted) {
-        return ReimbursementDAO.getAllReimbursementsBySubmittedDate(submitted);
+    public List<Reimbursement> getAllReimbursementsByDateSubmitted(Timestamp submitted) {
+        return reimbursementDAO.getAllReimbursementsByDateSubmitted(submitted);
     }
 
     public List<Reimbursement> getAllReimbursementsByTypeUUID(String typeUUID) {
-        return ReimbursementDAO.getAllReimbursementsByTypeUUID(typeUUID);
+        return reimbursementDAO.getAllReimbursementsByTypeUUID(typeUUID);
     }
 
     public boolean isValidStatusUUID(String statusUUID) {

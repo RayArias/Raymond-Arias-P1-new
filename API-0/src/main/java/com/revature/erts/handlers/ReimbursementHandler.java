@@ -28,7 +28,12 @@ public class ReimbursementHandler {
     private final ObjectMapper mapper;
     private final static Logger logger = LoggerFactory.getLogger(Reimbursement.class);
 
-    public ReimbursementHandler() { super(); }
+    public ReimbursementHandler() {
+        super();
+        this.reimbursementService = null;
+        this.tokenService = null;
+        this.mapper = null;
+    }
 
     public ReimbursementHandler(ReimbursementService reimbursementService, TokenService tokenService,
                                 ObjectMapper mapper) {
@@ -43,7 +48,7 @@ public class ReimbursementHandler {
         try {
             logger.info("Attempting to place new Reimbursement ticket...");
 
-            Reimbursement createdReimbursement;
+            Reimbursement createdReimbursement = null;
 
             ctx.status(201); // CREATED
             ctx.json(createdReimbursement.getReimbursementUUID());

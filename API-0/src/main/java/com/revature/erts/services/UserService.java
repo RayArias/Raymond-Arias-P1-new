@@ -36,6 +36,11 @@ public class UserService {
         return new Principal(validUser.getId(), validUser.getUsername(),  validUser.getRole(), validUser.getAuthID());
     }
 
+    // Change this later
+    public boolean isValidUser(NewLoginRequest req) {
+        return true;
+    }
+
     public List<User> getAllUsers() {
         return userDAO.findAll();
     }

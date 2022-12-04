@@ -1,6 +1,7 @@
 package com.revature.erts.handlers;
 
 import com.revature.erts.dtos.requests.NewUserRequest;
+import com.revature.erts.dtos.requests.NewLoginRequest;
 import com.revature.erts.dtos.responses.Principal;
 import com.revature.erts.models.UserRole;
 import com.revature.erts.models.User;
@@ -57,6 +58,29 @@ public class UserHandler {
             ctx.status(403); // FORBIDDEN
             ctx.json(e);
             logger.info("Signup attempt unsuccessful...");
+        }
+    }
+
+    public void login(Context ctx) throws IOException {
+        NewLoginRequest req = mapper.readValue(ctx.req.getInputStream(), NewLoginRequest.class);
+
+        try {
+            logger.info("Attempting to login...");
+
+            Principal principal;
+
+            if (this.userService.isValidUser(req)) {
+                principal = this.userService.login(req);
+            }
+            else throw new InvalidUserException("Bad Username or Password.");
+
+            ctx.status(202); // ACCEPTED
+            ctx.json(principal.getUserUUID());
+            logger.info("Login attempt successful...");
+        } catch (InvalidUserException e) {
+            ctx.status(403); // FORBIDDEN
+            ctx.json(e);
+            logger.info("Login attempt unsuccessful...");
         }
     }
 

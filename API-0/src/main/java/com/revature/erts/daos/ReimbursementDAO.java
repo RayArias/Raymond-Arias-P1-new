@@ -102,7 +102,7 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement> {
         return reimbursementIDs;
     }
 
-    public List<Reimbursement> getReimbursementsByTypeUUID(String typeID) {
+    public List<Reimbursement> getAllReimbursementsByTypeUUID(String typeID) {
         List<Reimbursement> reimbursementList = null;
         Reimbursement reimbursement;
 
@@ -124,13 +124,13 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement> {
         return reimbursementList;
     }
 
-    public List<Reimbursement> getReimbursementsByUserUUID(String userID) {
+    public List<Reimbursement> getAllReimbursementsByUserUUID(String userUUID) {
         List<Reimbursement> reimbursementList = null;
         Reimbursement reimbursement;
 
         try (Connection con = ConnectionFactory.getInstance().getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM reimbursements WHERE user_id = ?");
-            ps.setString (1, userID);
+            ps.setString (1, userUUID);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -147,4 +147,75 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement> {
         }
         return reimbursementList;
     }
+
+    public List<Reimbursement> getAllReimbursementsByStatusUUID(String statusUUID) {
+        List<Reimbursement> reimbursementList = null;
+        Reimbursement reimbursement;
+
+        try (Connection con = ConnectionFactory.getInstance().getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM reimbursements WHERE status_id = ?");
+            ps.setString (1, statusUUID);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                reimbursement = new Reimbursement(rs.getString("id"), rs.getFloat("amount"),
+                        rs.getString("description"), rs.getBytes("receipt"), rs.getString("payment_id"),
+                        rs.getString("type_id"), rs.getString("status_id"), rs.getTimestamp("submitted"), rs.getString("submitter_id"),
+                        rs.getTimestamp("resolved"), rs.getString("resolver_id"));
+                reimbursementList.add(reimbursement);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return reimbursementList;
+    }
+
+    public List<Reimbursement> getAllReimbursementsByUserUUIDAndStatusUUID(String userUUID, String statusUUID) {
+        List<Reimbursement> reimbursementList = null;
+        Reimbursement reimbursement;
+
+        try (Connection con = ConnectionFactory.getInstance().getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM reimbursements WHERE user_id = ? AND" +
+                    "status_id = ?");
+            ps.setString(1, userUUID);
+            ps.setString(2, statusUUID);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                reimbursement = new Reimbursement(rs.getString("id"), rs.getFloat("amount"),
+                        rs.getString("description"), rs.getBytes("receipt"),
+                        rs.getString("payment_id"), rs.getString("type_id"),
+                        rs.getString("status_id"), rs.getTimestamp("submitted"),
+                        rs.getString("submitter_id"), rs.getTimestamp("resolved"),
+                        rs.getString("resolver_id"));
+                reimbursementList.add(reimbursement);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return reimbursementList;
+    }
+
+    public List<Reimbursement> getAllReimbursementsByDateSubmitted(Timestamp submitted) {
+        List<Reimbursement> reimbursementList = null;
+        Reimbursement reimbursement;
+
+        try (Connection con = ConnectionFactory.getInstance().getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM reimbursements WHERE submitted = ?");
+            ps.setTimestamp (1, submitted);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                reimbursement = new Reimbursement(rs.getString("id"), rs.getFloat("amount"),
+                        rs.getString("description"), rs.getBytes("receipt"), rs.getString("payment_id"),
+                        rs.getString("type_id"), rs.getString("status_id"), rs.getTimestamp("submitted"), rs.getString("submitter_id"),
+                        rs.getTimestamp("resolved"), rs.getString("resolver_id"));
+                reimbursementList.add(reimbursement);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return reimbursementList;
+    }
+
 }

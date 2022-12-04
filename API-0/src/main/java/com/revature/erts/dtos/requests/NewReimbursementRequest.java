@@ -1,27 +1,36 @@
 package com.revature.erts.dtos.requests;
 
+import javax.sql.rowset.serial.SerialBlob;
+import java.sql.Timestamp;
+import java.util.Arrays;
+
 public class NewReimbursementRequest {
     private String id;
-    private String date;
-    private String amount;
+    private float amount;
     private String description;
+    private byte[] receiptByteArray;
+    private String paymentID;
     private String typeID;
     private String statusID;
-    private String userID;
+    private Timestamp submitted;
+    private String submitterID;
 
     public NewReimbursementRequest() {
         super();
     }
 
-    public NewReimbursementRequest(String id, String date, String amount, String description, String typeID,
-                                   String statusID, String userID) {
-        this.id          = id;
-        this.date        = date;
-        this.amount      = amount;
-        this.description = description;
-        this.typeID      = typeID;
-        this.statusID    = statusID;
-        this.userID      = userID;
+    public NewReimbursementRequest(String id, float amount, String description, byte[] receiptByteArray,
+                                   String paymentID, String typeID, String statusID, Timestamp submitted,
+                                   String submitterID) {
+        this.id               = id;
+        this.amount           = amount;
+        this.description      = description;
+        this.receiptByteArray = receiptByteArray;
+        this.paymentID        = paymentID;
+        this.typeID           = typeID;
+        this.statusID         = statusID;
+        this.submitted        = submitted;
+        this.submitterID      = submitterID;
     }
 
     public String getID() {
@@ -32,19 +41,9 @@ public class NewReimbursementRequest {
         this.id = id;
     }
 
-    public String getDate() {
-        return this.date;
-    }
+    public float getAmount() { return this.amount; }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getAmount() {
-        return this.amount;
-    }
-
-    public void setAmount(String amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 
@@ -56,39 +55,42 @@ public class NewReimbursementRequest {
         this.description = description;
     }
 
-    public String getTypeID() {
-        return this.typeID;
-    }
+    public byte[] getReceiptByteArray() { return this.receiptByteArray; }
 
-    public void setTypeID(String typeID) {
-        this.typeID = typeID;
-    }
+    public void setReceipt(byte[] receiptByteArray) { this.receiptByteArray = receiptByteArray; }
 
-    public String getStatusID() {
-        return this.statusID;
-    }
+    public String getPaymentID() { return this.paymentID; }
 
-    public void setStatusID(String statusID) {
-        this.statusID = statusID;
-    }
+    public void setPaymentID(String paymentID) { this.paymentID = paymentID; }
 
-    public String getUserID() {
-        return this.userID;
-    }
+    public String getTypeID() { return this.typeID; }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
+    public void setTypeID(String typeID) { this.typeID = typeID; }
+
+    public String getStatusID() { return this.statusID; }
+
+    public void setStatusID(String statusID) { this.statusID = statusID; }
+
+    public Timestamp getSubmitted() { return this.submitted; }
+
+    public void setSubmitted(Timestamp submitted) { this.submitted = submitted; }
+
+    public String getSubmitterID() { return this.submitterID; }
+
+    public void setUserID(String submitterID) { this.submitterID = submitterID; }
 
     @Override
     public String toString() {
         return "NewReimbursementRequest{" +
-                "id='" + this.id + '\'' +
-                ", date='" + this.date + '\'' +
-                ", amount='" + this.amount + '\'' +
-                ", description=" + this.description + '\'' +
-                ", typeID=" + this.typeID + '\'' +
-                ", statusID" + this.statusID + '\'' +
-                ", userID=" + this.userID + '}';
+                "id='" + id + '\'' +
+                ", amount=" + amount +
+                ", description='" + description + '\'' +
+                // ", receiptByteArray=" + Arrays.toString(receiptByteArray) +
+                ", paymentID='" + paymentID + '\'' +
+                ", typeID='" + typeID + '\'' +
+                ", statusID='" + statusID + '\'' +
+                ", submitted=" + submitted +
+                ", submitterID='" + submitterID + '\'' +
+                '}';
     }
 }
