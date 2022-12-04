@@ -5,6 +5,7 @@ import com.revature.erts.dtos.requests.NewReimbursementRequest;
 import com.revature.erts.dtos.responses.ReimbursementResponse;
 import com.revature.erts.models.*;
 import com.revature.erts.services.UserService;
+import com.revature.erts.utils.DebugAndTrace;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 import com.revature.erts.utils.custom_exceptions.InvalidReimbursementTicketException;
 
@@ -25,6 +26,7 @@ public class ReimbursementService {
     }
     public ReimbursementService(ReimbursementDAO reimbursementDAO) {
         this.reimbursementDAO = reimbursementDAO;
+        DebugAndTrace.trace("ReimbursementService(ReimbursementDAO) object created!");
     }
 
     public Reimbursement newReimbursement(NewReimbursementRequest req) throws SQLException {

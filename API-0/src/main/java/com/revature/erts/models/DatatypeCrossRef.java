@@ -11,6 +11,7 @@ import java.lang.String;
 import java.sql.SQLException;
 import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
+import javax.xml.bind.DatatypeConverter;
 
 public class DatatypeCrossRef {
 
@@ -450,22 +451,21 @@ public class DatatypeCrossRef {
         return i;
     }
 
-    public static SerialBlob byteArray2SerialBlob(byte[] bytearr) throws SQLException {
-        SerialBlob output = null;
+    public static SerialBlob byteArray2SerialBlob(byte[] bytearr) throws SQLException, SerialException {
         try {
-            output.setBytes(0L, bytearr);
+            SerialBlob output = new SerialBlob(bytearr);
             return output;
-        } catch(SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException sqlx) {
+            sqlx.printStackTrace();
         }
         return null;
     }
 
-    public static byte[] serialBlob2ByteArray(SerialBlob sblob) throws SerialException {
+    public static byte[] serialBlob2ByteArray(SerialBlob sblob) throws SQLException, SerialException {
         try {
             return sblob.getBytes(0L, (int)sblob.length());
-        } catch(SerialException e) {
-            e.printStackTrace();
+        } catch (SQLException serx) {
+            serx.printStackTrace();
         }
         return null;
     }

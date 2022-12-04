@@ -7,6 +7,7 @@ import com.revature.erts.dtos.responses.Principal;
 import com.revature.erts.models.UserRole;
 import com.revature.erts.models.User;
 import com.revature.erts.models.DatatypeCrossRef;
+import com.revature.erts.utils.DebugAndTrace;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 import com.revature.erts.utils.custom_exceptions.InvalidUserException;
 
@@ -20,12 +21,21 @@ public class UserService {
     private final UserDAO userDAO;
 
     public UserService(UserDAO userDAO) {
+
         this.userDAO = userDAO;
+        DebugAndTrace.trace("UserService(UserDAO) object created!");
     }
 
     public User signup(NewUserRequest req) {
         User createdUser = new User(UUID.randomUUID().toString(), req.getUsername(), req.getEmail(),
                 req.getGivenName(), req.getSurname(), req.getPassword1(), UserRole.EMPLOYEE);
+        if (createdUser.getUsername() == null) {
+            if (!isValidUsername(req.getUsername()))
+                throw new InvalidUserException("Username must be 8 - 20 characters.");
+            else if (isDuplicateUsername(req.getUsername())) throw new InvalidUserException("This username is taken.");
+            else if (!isSamePassword(req.getPassword1(), req.getPassword2()))
+                throw new InvalidUserException("Both passwords must be identical.");
+        }
         userDAO.save(createdUser);
         return createdUser;
     }

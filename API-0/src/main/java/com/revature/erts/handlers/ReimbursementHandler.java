@@ -9,6 +9,7 @@ import com.revature.erts.models.UserRole;
 import com.revature.erts.models.Reimbursement;
 import com.revature.erts.services.TokenService;
 import com.revature.erts.services.ReimbursementService;
+import com.revature.erts.utils.DebugAndTrace;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 import com.revature.erts.utils.custom_exceptions.InvalidReimbursementTicketException;
 
@@ -40,6 +41,8 @@ public class ReimbursementHandler {
         this.reimbursementService = reimbursementService;
         this.tokenService = tokenService;
         this.mapper = mapper;
+        DebugAndTrace.trace("ReimbursementHandler(ReimbursementService, TokenService, ObjectMapper) object " +
+                "created!");
     }
 
     public void newReimbursement(Context ctx) throws IOException {

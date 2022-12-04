@@ -22,6 +22,12 @@ public class NewUserRequest {
         this.password2 = password2;
     }
 
+    public NewUserRequest(String username, String password1, String password2) {
+        this.username = username;
+        this.password1 = password1;
+        this.password2 = password2;
+    }
+
     public String getUsername() {
         return this.username;
     }
@@ -53,6 +59,7 @@ public class NewUserRequest {
         return "NewUserRequest{" +
                 "username='" + username + '\'' +
                 ", givenName='" + givenName + '\'' +
+                ", email='" + email + '\'' +
                 ", surname='" + surname + '\'' +
                 ", password1='" + password1 + '\'' +
                 ", password2='" + password2 + '\'' +

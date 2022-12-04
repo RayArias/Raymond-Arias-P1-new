@@ -10,13 +10,14 @@ import java.security.Key;
 import java.util.Properties;
 
 public class JwtConfig {
-    private final int expiration = 60 * 60 * 1000;
+    private final int expiration = 60 * 60 * 1000; // (1 hour = 60 min * 60 sec * 1000 milliseconds)
     private final SignatureAlgorithm sigAlg = SignatureAlgorithm.HS256;
 
     private final Key signingKey;
     private final Properties properties = new Properties();
 
     public JwtConfig() {
+        System.out.println("Welcome to JwtConfig() no-params constructor!");
         try {
             properties.load(new FileReader("src/main/resources/db.properties"));
         } catch (IOException e) {
@@ -25,6 +26,7 @@ public class JwtConfig {
 
         byte[] saltyBytes = DatatypeConverter.parseBase64Binary(properties.getProperty("salt"));
         signingKey = new SecretKeySpec(saltyBytes, sigAlg.getJcaName());
+        System.out.println("JwtConfig() object created!");
     }
 
     public int getExpiration() {

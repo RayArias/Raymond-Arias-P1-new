@@ -7,6 +7,7 @@ import com.revature.erts.models.UserRole;
 import com.revature.erts.models.User;
 import com.revature.erts.services.TokenService;
 import com.revature.erts.services.UserService;
+import com.revature.erts.utils.DebugAndTrace;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 import com.revature.erts.utils.custom_exceptions.InvalidUserException;
 
@@ -30,6 +31,7 @@ public class UserHandler {
         this.userService = userService;
         this.tokenService = tokenService;
         this.mapper = mapper;
+        DebugAndTrace.trace("UserHandler(UserService, TokenService, ObjectMapper) object created!");
     }
 
     public void signup(Context ctx) throws IOException {
