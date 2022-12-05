@@ -52,7 +52,7 @@ public class UserHandler {
             } else throw new InvalidUserException("Username needs to be 8 - 20 characters long.");
 
             ctx.status(201); // CREATED
-            ctx.json(createdUser.getId());
+            ctx.json(createdUser.toString());
             logger.info("Signup attempt successful...");
         } catch (InvalidUserException e) {
             ctx.status(403); // FORBIDDEN

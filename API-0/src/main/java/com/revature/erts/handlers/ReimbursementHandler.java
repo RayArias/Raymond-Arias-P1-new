@@ -48,7 +48,7 @@ public class ReimbursementHandler {
             Reimbursement createdReimbursement = null;
 
             ctx.status(201); // CREATED
-            ctx.json(createdReimbursement.getReimbursementUUID());
+            ctx.json(createdReimbursement.toString());
             logger.info("Attempt to place new Reimbursement ticket successful...");
         } catch (InvalidReimbursementTicketException e) {
             ctx.status(403); // FORBIDDEN

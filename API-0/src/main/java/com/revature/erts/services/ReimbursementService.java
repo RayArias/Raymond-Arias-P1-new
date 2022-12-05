@@ -33,7 +33,7 @@ public class ReimbursementService {
         try {
             createdReimbursement = new Reimbursement(UUID.randomUUID().toString(), req.getAmount(),
                     req.getDescription(), req.getReceiptByteArray(), req.getPaymentID(), req.getTypeUUID(),
-                    DatatypeCrossRef.statusEnum2UUID(Status.PENDING), req.getSubmitted(), req.getSubmitterUUID());
+                    DatatypeCrossRef.statusEnum2UUID(Status.PENDING), makeTime, req.getSubmitterUUID());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

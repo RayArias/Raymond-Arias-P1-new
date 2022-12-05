@@ -29,6 +29,7 @@ public class UserDAO implements CrudDAO<User>{
             ps.setString(6, obj.getPassword());
             ps.setString(7, DatatypeCrossRef.userRoleEnum2UUID(obj.getRole()));
             ps.executeUpdate();
+            System.out.println("New user saved!");
         } catch (SQLException e) {
             e.printStackTrace();
         }

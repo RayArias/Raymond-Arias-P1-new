@@ -47,7 +47,7 @@ public class AuthHandler {
 
             logger.info("Login successful...");
         } catch (InvalidAuthException e) {
-            ctx.status(401);
+            ctx.status(401); // UNAUTHORIZED
             ctx.json(e);
         }
     }

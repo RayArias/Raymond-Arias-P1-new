@@ -16,7 +16,6 @@ public class JwtConfig {
     private final Properties properties = new Properties();
 
     public JwtConfig() {
-        System.out.println("Welcome to JwtConfig() no-params constructor!");
         try {
             properties.load(new FileReader("src/main/resources/db.properties"));
         } catch (IOException e) {
@@ -25,7 +24,6 @@ public class JwtConfig {
 
         byte[] saltyBytes = DatatypeConverter.parseBase64Binary(properties.getProperty("salt"));
         signingKey = new SecretKeySpec(saltyBytes, sigAlg.getJcaName());
-        System.out.println("JwtConfig() object created!");
     }
 
     public int getExpiration() {
