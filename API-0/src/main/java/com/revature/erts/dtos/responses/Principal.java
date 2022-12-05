@@ -15,10 +15,10 @@ public class Principal {
     }
 
     public Principal(String userUUID, String username, UserRole role, String authID) {
-        this.userUUID  = userUUID;
-        this.username  = username;
-        this.role      = role;
-        this.authID    = authID;
+        this.userUUID = userUUID;
+        this.username = username;
+        this.role     = role;
+        this.authID   = authID;
     }
 
     public Principal(String userUUID, String username, String roleUUID, String authID) {
@@ -63,11 +63,11 @@ public class Principal {
     @java.lang.Override
     public java.lang.String toString() {
         return "Principal{" +
-                "userUUID='" + userUUID + '\'' +
-                ", username='" + username + '\'' +
-                ", roleUUID='" + getRoleUUID() +
-                ", roleText='" + getRoleText() +
-                ", authID='" + authID +
+                "userUUID='"   + userUUID      + '\'' +
+                ", username='" + username      + '\'' +
+                ", roleUUID='" + getRoleUUID() + '\'' +
+                ", roleText='" + getRoleText() + '\'' +
+                ", authID='"   + authID        + '\'' +
                 '}';
     }
 }

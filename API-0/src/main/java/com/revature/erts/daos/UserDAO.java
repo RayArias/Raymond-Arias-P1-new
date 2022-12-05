@@ -1,7 +1,6 @@
 package com.revature.erts.daos;
 
 import com.revature.erts.utils.ConnectionFactory;
-import com.revature.erts.utils.DebugAndTrace;
 import com.revature.erts.models.DatatypeCrossRef;
 import com.revature.erts.models.User;
 
@@ -15,11 +14,6 @@ import java.util.List;
 /* purpose of UserDAO is to return data from the database */
 /* DAO = DATA ACCESS OBJECT */
 public class UserDAO implements CrudDAO<User>{
-
-    public UserDAO() {
-        DebugAndTrace.trace("UserDAO() object created!");
-    }
-
 
     @Override
     public void save(User obj) {

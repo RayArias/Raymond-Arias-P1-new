@@ -1,9 +1,5 @@
 package com.revature.erts.models;
 
-import com.revature.erts.models.Status;
-import com.revature.erts.models.ReimbursementType;
-import com.revature.erts.models.DatatypeCrossRef;
-
 import javax.sql.rowset.serial.SerialBlob;
 import java.sql.SQLException;
 import java.sql.Timestamp;

@@ -5,7 +5,6 @@ import com.revature.erts.dtos.responses.Principal;
 import com.revature.erts.services.TokenService;
 import com.revature.erts.services.UserService;
 import com.revature.erts.models.User;
-import com.revature.erts.utils.DebugAndTrace;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,7 +26,6 @@ public class AuthHandler {
         this.userService = userService;
         this.tokenService = tokenService;
         this.mapper = mapper;
-        DebugAndTrace.trace("AuthHandler(UserService, TokenService, ObjectMapper) object created!");
     }
 
     public void authenticateUser(Context ctx) throws IOException {

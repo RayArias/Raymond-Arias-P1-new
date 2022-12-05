@@ -6,8 +6,6 @@ import com.revature.erts.models.Status;
 import com.revature.erts.models.Reimbursement;
 import com.revature.erts.models.DatatypeCrossRef;
 import com.revature.erts.utils.ConnectionFactory;
-import com.revature.erts.daos.CrudDAO;
-import com.revature.erts.utils.DebugAndTrace;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,10 +20,6 @@ import java.util.List;
 /* purpose of ReimbursementDAO is to return data from the database */
 /* DAO = DATA ACCESS OBJECT */
 public class ReimbursementDAO implements CrudDAO<Reimbursement> {
-
-    public ReimbursementDAO() {
-        DebugAndTrace.trace("ReimbursementDAO() object created!");
-    }
 
     @Override
     public void save(Reimbursement obj) {

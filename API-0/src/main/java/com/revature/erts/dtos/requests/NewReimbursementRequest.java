@@ -5,40 +5,59 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 
 public class NewReimbursementRequest {
-    private String id;
+    private String reimbursementUUID;
     private float amount;
     private String description;
     private byte[] receiptByteArray;
     private String paymentID;
-    private String typeID;
-    private String statusID;
+    private String typeUUID;
+    private String statusUUID;
     private Timestamp submitted;
-    private String submitterID;
+    private String submitterUUID;
+    private Timestamp resolved;
+    private String resolverUUID;
 
     public NewReimbursementRequest() {
         super();
     }
 
-    public NewReimbursementRequest(String id, float amount, String description, byte[] receiptByteArray,
-                                   String paymentID, String typeID, String statusID, Timestamp submitted,
-                                   String submitterID) {
-        this.id               = id;
-        this.amount           = amount;
-        this.description      = description;
-        this.receiptByteArray = receiptByteArray;
-        this.paymentID        = paymentID;
-        this.typeID           = typeID;
-        this.statusID         = statusID;
-        this.submitted        = submitted;
-        this.submitterID      = submitterID;
+    public NewReimbursementRequest(String reimbursementUUID, float amount, String description, byte[] receiptByteArray,
+                                   String paymentID, String typeUUID, String statusUUID, Timestamp submitted,
+                                   String submitterUUID) {
+        this.reimbursementUUID = reimbursementUUID;
+        this.amount            = amount;
+        this.description       = description;
+        this.receiptByteArray  = receiptByteArray;
+        this.paymentID         = paymentID;
+        this.typeUUID          = typeUUID;
+        this.statusUUID        = statusUUID;
+        this.submitted         = submitted;
+        this.submitterUUID     = submitterUUID;
+        this.resolved          = null;
+        this.resolverUUID      = null;
     }
 
-    public String getID() {
-        return this.id;
+    public NewReimbursementRequest(String reimbursementUUID, float amount, String description, byte[] receiptByteArray,
+                                   String paymentID, String typeUUID, String statusUUID, Timestamp submitted,
+                                   String submitterUUID, Timestamp resolved, String resolverUUID) {
+        this.reimbursementUUID = reimbursementUUID;
+        this.amount            = amount;
+        this.description       = description;
+        this.receiptByteArray  = receiptByteArray;
+        this.paymentID         = paymentID;
+        this.typeUUID          = typeUUID;
+        this.statusUUID        = statusUUID;
+        this.submitted         = submitted;
+        this.submitterUUID     = submitterUUID;
+        this.resolved          = resolved;
+        this.resolverUUID      = resolverUUID;
+    }
+    public String getUUID() {
+        return this.reimbursementUUID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String reimbursementUUID) {
+        this.reimbursementUUID = reimbursementUUID;
     }
 
     public float getAmount() { return this.amount; }
@@ -63,34 +82,47 @@ public class NewReimbursementRequest {
 
     public void setPaymentID(String paymentID) { this.paymentID = paymentID; }
 
-    public String getTypeID() { return this.typeID; }
+    public String getTypeUUID() { return this.typeUUID; }
 
-    public void setTypeID(String typeID) { this.typeID = typeID; }
+    public void setTypeUUID(String typeUUID) { this.typeUUID = typeUUID; }
 
-    public String getStatusID() { return this.statusID; }
+    public String getStatusUUID() { return this.statusUUID; }
 
-    public void setStatusID(String statusID) { this.statusID = statusID; }
+    public void setStatusUUID(String statusUUID) { this.statusUUID = statusUUID; }
 
     public Timestamp getSubmitted() { return this.submitted; }
 
     public void setSubmitted(Timestamp submitted) { this.submitted = submitted; }
 
-    public String getSubmitterID() { return this.submitterID; }
+    public String getSubmitterUUID() { return this.submitterUUID; }
 
-    public void setUserID(String submitterID) { this.submitterID = submitterID; }
+    public void setSubmitterUUID(String submitterUUID) { this.submitterUUID = submitterUUID; }
+
+    public Timestamp getResolved() { return this.resolved; }
+    public void setResolved(Timestamp resolved) {
+        this.resolved = resolved;
+    }
+
+    public String getResolverUUID() { return this.resolverUUID; }
+
+    public void setResolverUUID(String resolverUUID) {
+        this.resolverUUID = resolverUUID;
+    }
 
     @Override
     public String toString() {
         return "NewReimbursementRequest{" +
-                "id='" + id + '\'' +
-                ", amount=" + amount +
+                "reimbursementUUID='" + reimbursementUUID + '\'' +
+                ", amount=" + amount + '\'' +
                 ", description='" + description + '\'' +
                 // ", receiptByteArray=" + Arrays.toString(receiptByteArray) +
                 ", paymentID='" + paymentID + '\'' +
-                ", typeID='" + typeID + '\'' +
-                ", statusID='" + statusID + '\'' +
+                ", typeUUID='" + typeUUID + '\'' +
+                ", statusUUID='" + statusUUID + '\'' +
                 ", submitted=" + submitted +
-                ", submitterID='" + submitterID + '\'' +
+                ", submitterUUID='" + submitterUUID + '\'' +
+                ", resolved=" + resolved + '\'' +
+                ", resolverUUID" + resolverUUID + '\'' +
                 '}';
     }
 }

@@ -11,7 +11,6 @@ import java.lang.String;
 import java.sql.SQLException;
 import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
-import javax.xml.bind.DatatypeConverter;
 
 public class DatatypeCrossRef {
 
@@ -422,7 +421,7 @@ public class DatatypeCrossRef {
                 break;
 
             default:
-                throw new InvalidUserRoleException("Invailid User Role UUID string.");
+                throw new InvalidUserRoleException("Invalid User Role UUID string.");
         }
         return roleText;
     }
@@ -430,31 +429,24 @@ public class DatatypeCrossRef {
 
 
     public static int String2Int(String s) {
-        float f = Float.parseFloat(s);
-        int i = moneyFloat2Int(f);
-        return i;
+        return moneyFloat2Int(Float.parseFloat(s));
     }
 
     public static String int2String(int i) {
-        float f = int2MoneyFloat(i);
-        String s = String.valueOf(f);
-        return s;
+        return String.valueOf(int2MoneyFloat(i));
     }
 
     public static float int2MoneyFloat(int i) {
-        float f = (float)(i) / 100.0f;
-        return f;
+        return (float)(i) / 100.0f;
     }
 
     public static int moneyFloat2Int(float f) {
-        int i = (int)(Math.floor(f) * 100.0f);
-        return i;
+        return (int)(Math.floor(f) * 100.0f);
     }
 
     public static SerialBlob byteArray2SerialBlob(byte[] bytearr) throws SQLException, SerialException {
         try {
-            SerialBlob output = new SerialBlob(bytearr);
-            return output;
+            return new SerialBlob(bytearr);
         } catch (SQLException sqlx) {
             sqlx.printStackTrace();
         }

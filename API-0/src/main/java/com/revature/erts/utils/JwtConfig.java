@@ -1,7 +1,6 @@
 package com.revature.erts.utils;
 
 import io.jsonwebtoken.SignatureAlgorithm;
-
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 import java.io.FileReader;

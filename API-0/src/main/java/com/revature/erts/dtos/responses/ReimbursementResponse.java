@@ -109,15 +109,17 @@ public class ReimbursementResponse {
     public String toString() {
         return "ReimbursementResponse{" +
                 "reimbursementUUID='" + reimbursementUUID + '\'' +
-                ", amount=" + amount +
-                ", description='" + description + '\'' +
-                ", typeUUID='" + getTypeUUID() + '\'' +
-                ", typeText='" + getTypeText() + '\'' +
-                // ", receipt=" + receipt +
-                ", statusUUID='" + getStatusUUID() + '\'' +
-                ", statusText='" + getStatusText() + '\'' +
-                ", submitted='" + submitted + '\'' +
-                ", submitterUUID='" + submitterUUID + '\'' +
+                ", amount="           + amount            + '\'' +
+                ", description='"     + description       + '\'' +
+                ", typeUUID='"        + getTypeUUID()     + '\'' +
+                ", typeText='"        + getTypeText()     + '\'' +
+                // ", receipt="       + receipt           + '\'' +  (how do you place a SerialBlob in a toString()?
+                ", statusUUID='"      + getStatusUUID()   + '\'' +
+                ", statusText='"      + getStatusText()   + '\'' +
+                ", submitted='"       + submitted         + '\'' +
+                ", submitterUUID='"   + submitterUUID     + '\'' +
+                ", resolved='"        + resolved          + '\'' +
+                ", resolverUUID='"    + resolverUUID      + '\'' +
                 '}';
     }
 }

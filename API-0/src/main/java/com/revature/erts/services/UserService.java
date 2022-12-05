@@ -7,7 +7,6 @@ import com.revature.erts.dtos.responses.Principal;
 import com.revature.erts.models.UserRole;
 import com.revature.erts.models.User;
 import com.revature.erts.models.DatatypeCrossRef;
-import com.revature.erts.utils.DebugAndTrace;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 import com.revature.erts.utils.custom_exceptions.InvalidUserException;
 
@@ -23,7 +22,6 @@ public class UserService {
     public UserService(UserDAO userDAO) {
 
         this.userDAO = userDAO;
-        DebugAndTrace.trace("UserService(UserDAO) object created!");
     }
 
     public User signup(NewUserRequest req) {
@@ -77,17 +75,12 @@ public class UserService {
     }
 
     public boolean isValidPassword(String password) {
-        return password.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
+        return true; // password.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
     }
 
     public boolean isSamePassword(String password1, String password2) {
         return password1.equals(password2);
     }
 
-    public boolean isValidUserRoleUUID(String userRoleUUID) {
-        boolean userRoleUUIDIsValid = (userRoleUUID == "17083287-4167-4edb-abc0-ca8dec1c9152") || (userRoleUUID ==
-                "240eebc4-1bcb-49be-b816-96c8d19f76fd") || (userRoleUUID == "3a89e958-6504-4cb6-ac83-14c0af1b732e");
-        return userRoleUUIDIsValid;
-    }
 }
 

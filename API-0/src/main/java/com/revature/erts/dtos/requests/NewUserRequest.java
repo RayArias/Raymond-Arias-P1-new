@@ -57,12 +57,12 @@ public class NewUserRequest {
     @Override
     public String toString() {
         return "NewUserRequest{" +
-                "username='" + username + '\'' +
-                ", givenName='" + givenName + '\'' +
-                ", email='" + email + '\'' +
-                ", surname='" + surname + '\'' +
-                ", password1='" + password1 + '\'' +
-                ", password2='" + password2 + '\'' +
+                "username='"     + username  + '\'' +
+                ", givenName='"  + givenName + '\'' +
+                ", email='"      + email     + '\'' +
+                ", surname='"    + surname   + '\'' +
+                ", password1='"  + password1 + '\'' +
+                ", password2='"  + password2 + '\'' +
                 '}';
     }
 }

@@ -1,8 +1,5 @@
 package com.revature.erts.models;
 
-import com.revature.erts.models.UserRole;
-import com.revature.erts.models.DatatypeCrossRef;
-
 public class User {
     private String id;
     private String username;

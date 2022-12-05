@@ -7,7 +7,6 @@ import com.revature.erts.models.UserRole;
 import com.revature.erts.models.User;
 import com.revature.erts.services.TokenService;
 import com.revature.erts.services.UserService;
-import com.revature.erts.utils.DebugAndTrace;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 import com.revature.erts.utils.custom_exceptions.InvalidUserException;
 
@@ -20,7 +19,7 @@ import java.io.IOException;
 import java.util.List;
 
 /* purpose of this UserHandler class is to handle http verbs and endpoints */
-/* hierarchy dependency injection -> userhandler -> userservice -> userdao */
+/* hierarchy dependency injection -> UserHandler -> UserService -> UserDAO */
 public class UserHandler {
     private final UserService userService;
     private final TokenService tokenService;
@@ -31,7 +30,6 @@ public class UserHandler {
         this.userService = userService;
         this.tokenService = tokenService;
         this.mapper = mapper;
-        DebugAndTrace.trace("UserHandler(UserService, TokenService, ObjectMapper) object created!");
     }
 
     public void signup(Context ctx) throws IOException {
@@ -48,7 +46,7 @@ public class UserHandler {
                         if (userService.isSamePassword(req.getPassword1(), req.getPassword2())) {
                             createdUser = userService.signup(req);
                         } else throw new InvalidUserException("Passwords do not match.");
-                    } else throw new InvalidUserException("Password needs to be minimum 8 characters long," +
+                    } else throw new InvalidUserException("Password needs to be minimum 8 characters long, " +
                             "and have at least one number");
                 } else throw new InvalidUserException("Username is already taken.");
             } else throw new InvalidUserException("Username needs to be 8 - 20 characters long.");

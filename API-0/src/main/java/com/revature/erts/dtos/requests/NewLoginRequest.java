@@ -1,5 +1,6 @@
 package com.revature.erts.dtos.requests;
 
+
 public class NewLoginRequest {
     private String username;
     private String password;

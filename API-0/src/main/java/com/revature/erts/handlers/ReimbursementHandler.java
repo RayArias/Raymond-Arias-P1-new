@@ -3,13 +3,9 @@ package com.revature.erts.handlers;
 
 import com.revature.erts.dtos.requests.NewReimbursementRequest;
 import com.revature.erts.dtos.responses.Principal;
-import com.revature.erts.models.ReimbursementType;
-import com.revature.erts.models.Status;
-import com.revature.erts.models.UserRole;
-import com.revature.erts.models.Reimbursement;
+import com.revature.erts.models.*;
 import com.revature.erts.services.TokenService;
 import com.revature.erts.services.ReimbursementService;
-import com.revature.erts.utils.DebugAndTrace;
 import com.revature.erts.utils.custom_exceptions.InvalidAuthException;
 import com.revature.erts.utils.custom_exceptions.InvalidReimbursementTicketException;
 
@@ -22,7 +18,7 @@ import java.io.IOException;
 import java.util.List;
 
 /* purpose of this ReimbursementHandler class is to handle http verbs and endpoints */
-/* hierarchy dependency injection -> reimbursementhandler -> reimbursementservice -> reimbursementdao */
+/* hierarchy dependency injection -> ReimbursementHandler -> ReimbursementService -> ReimbursementDAO */
 public class ReimbursementHandler {
     private final ReimbursementService reimbursementService;
     private final TokenService tokenService;
@@ -41,8 +37,6 @@ public class ReimbursementHandler {
         this.reimbursementService = reimbursementService;
         this.tokenService = tokenService;
         this.mapper = mapper;
-        DebugAndTrace.trace("ReimbursementHandler(ReimbursementService, TokenService, ObjectMapper) object " +
-                "created!");
     }
 
     public void newReimbursement(Context ctx) throws IOException {
@@ -76,7 +70,7 @@ public class ReimbursementHandler {
             List<Reimbursement> reimbursements = reimbursementService.getAllReimbursements();
             ctx.json(reimbursements);
         } catch (InvalidAuthException e) {
-            ctx.status(401);
+            ctx.status(401); // UNAUTHORIZED
             ctx.json(e);
         }
     }
@@ -87,19 +81,41 @@ public class ReimbursementHandler {
             if (token == null || token.isEmpty()) throw new InvalidAuthException("You are not signed in.");
 
             Principal principal = tokenService.extractRequesterDetails(token);
+            String userUUID = ctx.req.getParameter("user_id");
             if (principal == null) throw new InvalidAuthException("Invalid token.");
-            if (!principal.getRole().equals(UserRole.ADMIN) || !principal.getRole().equals(UserRole.MANAGER))
-                throw new InvalidAuthException("You are not authorized to do this.");
-
-            String userID = ctx.req.getParameter("user_id");
-            List<Reimbursement> reimbursements = reimbursementService.getAllReimbursementsByUserUUID(userID);
+            if (!principal.getUserUUID().equals(userUUID)) {
+                if (!principal.getRole().equals(UserRole.ADMIN) || !principal.getRole().equals(UserRole.MANAGER))
+                    throw new InvalidAuthException("You are not authorized to do this.");
+            }
+            List<Reimbursement> reimbursements = reimbursementService.getAllReimbursementsByUserUUID(userUUID);
             ctx.json(reimbursements);
         } catch (InvalidAuthException e) {
-            ctx.status(401);
+            ctx.status(401); // UNAUTHORIZED
             ctx.json(e);
         }
     }
 
+    public void getAllReimbursementsByUserUUIDAndStatusUUID(Context ctx) {
+        try {
+            String token = ctx.req.getHeader("authorization");
+            if (token == null || token.isEmpty()) throw new InvalidAuthException("You are not signed in.");
+
+            Principal principal = tokenService.extractRequesterDetails(token);
+            String userUUID = ctx.req.getParameter("user_id");
+            if (principal == null) throw new InvalidAuthException("Invalid token.");
+            if (!principal.getUserUUID().equals(userUUID)) {
+                if (!principal.getRole().equals(UserRole.ADMIN) || !principal.getRole().equals(UserRole.MANAGER))
+                    throw new InvalidAuthException("You are not authorized to do this.");
+            }
+            String statusUUID = ctx.req.getParameter("status_id");
+            List<Reimbursement> reimbursements =
+                    reimbursementService.getAllReimbursementsByUserUUIDAndStatusUUID(userUUID, statusUUID);
+            ctx.json(reimbursements);
+        } catch (InvalidAuthException e) {
+            ctx.status(401); // UNAUTHORIZED
+            ctx.json(e);
+        }
+    }
 
 }
 

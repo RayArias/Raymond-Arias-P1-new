@@ -10,8 +10,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /*
- * Singleton design pattern
- * Singleton is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
+ * Singleton Design Pattern:
+ * Singleton is a creational design pattern that lets you ensure that a class has only one instance, while providing a
+ * global access point to this instance.
  */
 public class ConnectionFactory {
     /* The field for storing the singleton instance should be declared static */
