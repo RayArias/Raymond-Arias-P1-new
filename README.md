@@ -15,7 +15,7 @@ This is done by having users with one of three roles that access ERTS:
   - An ADMIN cannot actually delete users from the ERTS database, but rather they disable access to the accounts to everyone but themself and other ADMINs. This is necessary to allow a user's information to continue being associated with an ERT that was previously created.
 
 ##### System Use Case Diagrams
-![System Use Case Diagrams](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/images/ERTSUseCaseDiagram.png)
+![System Use Case Diagrams](https://raw.githubusercontent.com/221114-Java-React/main/Raymond-Arias-P1-new/images/ERTSUseCaseDiagram.png)
 
 
 ### Project Design Specifications and Documents
@@ -25,11 +25,11 @@ The ERTS database conforms to the 3NF because the data contained is atomic, has 
 ![Relational Model](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/images/ERTSRelationalModel.png)
 
 
-![Diagram from DBeaver](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/images/DBeaver-postgres-erts_schema.png)
+![Diagram from DBeaver](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/main/images/DBeaver-postgres-erts_schema.png)
 
 
 ##### Reimbursment System Flow
-![Reimbursment Status State Flow](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/images/ERTSStateFlowDiagram.png)
+![Reimbursment Status State Flow](https://raw.githubusercontent.com/221114-Java-React/main/Raymond-Arias-P1-new/images/ERTSStateFlowDiagram.png)
 
 ##### DEFAULT Endpoints
 
