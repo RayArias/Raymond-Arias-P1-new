@@ -28,7 +28,7 @@ The ERTS database conforms to the 3NF (3rd Normal Form) because the data contain
 * 3NF and columns are not dependent on anything but Primary Keys (no transitive dependencies).
 
 ##### Relational Data Model
-![Relational Model](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/main/images/ERTSRelationalModel.png)
+![Relational Model](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/main/images/ERTSRelationalModelDrawio.png)
 
 
 ![Diagram from DBeaver](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/main/images/DBeaver-postgres-erts_schema.png)
