@@ -70,7 +70,7 @@ The ERTS database conforms to the 3NF (3rd Normal Form) because the data contain
 
 ### Required Resources
 - A 'resources' directory is created in the 'main' directory with a db.properties file. This holds properties (URL, username, and password) used to access the ERTS PostGreSQL database. 
-- In addition to these, we also need a salt string property to enable the JWT to sign authorization tokens with a custom 'salt'.
+- In addition to these, we also need a salt string property to enable the jwt (JSON Web Token, JSON is JavaScript Object Notation) to sign authorization tokens with a custom 'salt'.
 
 ### Instructions
 - First create the PostGreSQL database and configure the database to the Relational Data Model shown above.
