@@ -2,7 +2,7 @@
 
 ## Project Description
 
-ERTS is a RESTful (REST is REpresentational State Transfer) Application Program Interface (API) that facilitates company management Employee Reimbursement Tickets (ERTs), or requests for reembursement. This API also observes Level 2 of the Richardson API Maturity Model because it has Multiple URIs (Universal Resource Identifiers, strings of characters user to identify resources on computer networks) and HTTP verbs (HTTP is Hypertext Transfer Protocol, a set of rules for transferring files over the Internet, and HTTP verbs are commands that are sent by one Internet resource to tell another Internet resource what to do).
+ERTS is a RESTful (REST is REpresentational State Transfer) Application Program Interface (API) that facilitates company management Employee Reimbursement Tickets (ERTs), or requests for reembursement. This API also observes Level 2 of the Richardson API Maturity Model because it has Multiple URIs (Universal Resource Identifiers, strings of characters user to identify resources on computer networks) and multiple HTTP verbs (HTTP is Hypertext Transfer Protocol, a set of rules for transferring files over the Internet, and HTTP verbs are commands that are sent by one Internet resource to tell another Internet resource what to do).
 
 UserRole-s, ReimbursementType-s, and Status-es of reimbursements are enumerated (a sort of "custom" datatype) during processing, but these, along with each User and each Reimbursement is given its own UUID (Universal Unique IDentifier) so that each record and designation can be uniquely identified.
 
