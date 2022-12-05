@@ -15,7 +15,7 @@ This is done by having users with one of three roles that access ERTS:
   - An ADMIN cannot actually delete users from the ERTS database, but rather they disable access to the accounts to everyone but themself and other ADMINs. This is necessary to allow a user's information to continue being associated with an ERT that was previously created.
 
 ##### System Use Case Diagrams
-![System Use Case Diagrams](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/images/ERTS%20Use%20Case%20Diagram.png)
+![System Use Case Diagrams](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/images/ERTSUseCaseDiagram.png)
 
 
 ### Project Design Specifications and Documents
