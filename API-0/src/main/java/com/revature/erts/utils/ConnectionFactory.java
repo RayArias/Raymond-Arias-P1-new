@@ -50,7 +50,6 @@ public class ConnectionFactory {
         Connection con = DriverManager.getConnection(props.getProperty("url"), props.getProperty("username"),
                 props.getProperty("password"));
         if (con == null) throw new RuntimeException("Could not establish connection with the database!");
-        else System.out.print("Connection established with database!!!");
         return con;
     }
 }
