@@ -2,13 +2,15 @@
 
 ## Project Description
 
-ERTS is a RESTful Application Program Interface (API) that facilitates company management Employee Reimbursement Tickets (ERTs), or requests for reembursement. This API also observes Level 2 of the Richardson API Maturity Model because it has Multiple URIs (Universal Resource Identifiers, strings of characters user to identify resources on computer networks) and verbs of HTTP (Hypertext Transfer Protocol, a set of rules for transferring files over the Internet) verbs (these are commands that are sent by one Internet resource to tell another Internet resource what to do).
+ERTS is a RESTful (REST is REpresentational State Transfer) Application Program Interface (API) that facilitates company management Employee Reimbursement Tickets (ERTs), or requests for reembursement. This API also observes Level 2 of the Richardson API Maturity Model because it has Multiple URIs (Universal Resource Identifiers, strings of characters user to identify resources on computer networks) and verbs of HTTP (Hypertext Transfer Protocol, a set of rules for transferring files over the Internet) verbs (these are commands that are sent by one Internet resource to tell another Internet resource what to do).
 
-This is done by having users with one of three roles that access ERTS:
+UserRole-s, ReimbursementType-s, and Status-es of reimbursements are enumerated (a sort of "custom" datatype) during processing, but these, along with each User and each Reimbursement is given its own UUID (Universal Unique IDentifier) so that each record and designation can be uniquely identified.
+
+The project is accomplished by having users with one of three roles that access ERTS:
 - EMPLOYEE (UUID: 17083287-4167-4edb-abc0-ca8dec1c9152): An EMPLOYEE can create ERTs, after which this EMPLOYEE can see and manage their own PENDING ERTs.
 
 
-- MANAGER (UUID: 240eebc4-1bcb-49be-b816-96c8d19f76fd): A Finance Manager, known just as a MANAGER in the system, can access all ERTs and details on them and change their Status from PENDING to either APPROVED or DENIED. However, they cannot alter details on the ERTs. A MANAGER can also filter ERTs by Status, usually the PENDING Status.
+- MANAGER (UUID: 240eebc4-1bcb-49be-b816-96c8d19f76fd): A Finance Manager, known just as a MANAGER in the system, can access all ERTs and details on them and change their enumerated Status from PENDING (UUID: 5d3d4eec-06cb-4979-a9fc-5d00300f422b) to either APPROVED (UUID: 9be2a384-a18f-47a9-a190-9b4482e9f5b5) or DENIED (UUID: 1889b06d-9aea-42bd-9d8a-d29993e4ff16). However, they cannot alter details on the ERTs. A MANAGER can also filter ERTs by Status, usually the PENDING Status.
 
 
 - ADMIN (UUID: 3a89e958-6504-4cb6-ac83-14c0af1b732e): An Administrator, or ADMIN, can access all EMPLOYEEs and help them manage their own user accounts by changing their user details. This enables the ADMIN to toggle access users as well as change each user's UserRole-s.
