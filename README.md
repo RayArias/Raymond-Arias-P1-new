@@ -62,10 +62,10 @@ The ERTS database conforms to the 3NF (3rd Normal Form) because the data contain
 - **DBeaver** - SQL Editor and Database Manager
 - **Postman** - Facilitates Communication of Commands and Data Using HTTP
 
-**Process**
+**Process Flow**
 - **HTTP Request** (Postman) &harr; **JDBC** &harr; **Javalin** &harr; **API** &harr; **PostgreSQL Database**
 
-![Process}(https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/main/images/Web_App_Flow-02-01-1024x385.png)
+![Process Flow](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/main/images/Web_App_Flow-02-01-1024x385.png)
 
 
 ### Required Resources
