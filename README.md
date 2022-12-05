@@ -60,7 +60,25 @@ The ERTS database conforms to the 3NF (3rd Normal Form) because the data contain
 - **JUnit** - Java Unit Testing Framework
 - **Mockito** - Java Class Mocking Framework
 - **DBeaver** - SQL Editor and Database Manager
-- **Postman** - Facilitates Communication of Commands and Data Using HTTP 
+- **Postman** - Facilitates Communication of Commands and Data Using HTTP
+
+**Process**
+- **HTTP Request** (Postman)
+       ^
+       v
+- **JDBC**
+      ^
+      v
+- **Javalin**
+      ^
+      v
+- **API**
+      ^
+      v
+- **PostgreSQL Database**
+
+![Process}(https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/main/images/Web_App_Flow-02-01-1024x385.png)
+
 
 ### Required Resources
 - A 'resources' directory is created in the 'main' directory with a db.properties file. This holds properties (URL, username, and password) used to access the ERTS PostGreSQL database. 
