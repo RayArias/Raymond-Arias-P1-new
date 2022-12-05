@@ -20,7 +20,8 @@ This is done by having users with one of three roles that access ERTS:
 
 ### Project Design Specifications and Documents
 
-The ERTS database conforms to the 3NF because the data contained is atomic, has unique identifiers (UUIDs), no partial dependencies (no composite Keys), and columns are not dependent on anything but Primary Keys.
+The ERTS database conforms to the 3NF (3rd Normal Form) because the data contained is *1NF atomic, has unique identifiers (UUIDs), *2NF no partial dependencies (no composite Keys)--all values have to be identified by a single column, *3NF and columns are not dependent on anything but Primary Keys (no transitive dependencies).
+
 ##### Relational Data Model
 ![Relational Model](https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/main/images/ERTSRelationalModel.png)
 
@@ -33,11 +34,11 @@ The ERTS database conforms to the 3NF because the data contained is atomic, has 
 
 ##### DEFAULT Endpoints
 
-- /reimbursementSystem/users (POST/GET)
-- /reimbursementSystem/users/update (PUT/GET)
-- /reimbursementSystem/reimbursements (POST/GET)
-- /reimbursementSystem/reimbursements/update (PUT/GET)
-- /reimbursementSystem/auth (POST)
+- http://localhost:8080/erts/users (POST/GET)
+- http://localhost:8080/erts/users/update (PUT/GET)
+- http://localhost:8080/erts/reimbursements (POST/GET)
+- http://localhost:8080/erts/reimbursements/update (PUT/GET)
+- http://localhost:8080/erts/auth (POST)
 
 ### Technologies
 
@@ -62,18 +63,17 @@ The ERTS database conforms to the 3NF because the data contained is atomic, has 
 
 ### Instructions
 - First create the PostGreSQL database and configure the database to the Relational Data Model shown above.
-  - DDL and DML starter files are available on request. Example usernames, passwords, and requests are included in the DML. 
+  - Everything in one script. 
   - Example password is passw0rd.
-- After starting the database, configure the db.properties file described in Required Resources. The URL and Port must
-be the same as the created database's URL and Port. 
+- After starting the database, configure the db.properties file described in Required Resources. The URL and Port must be the same as the created database's URL and Port. 
 - At this point you may configure the main driver's 'port' value in the MainDriver.java in order to specify the port you would like you make requests to.
 - Generate HTTP requests to the paths specified in the Router.java class under the util directory.
-  - Certain HTTP requests will require formatting. For example: POST to the /ticket endpoint will require an 'authorization' token in the header, 
-as well as a body request. Please see the documentation below in 'Request Format' for more information. More detailed request formats can be provided at request or by looking under the DTO directory.
+- Certain HTTP requests will require formatting. For example: POST to the /reimbursements endpoint will require an 'authorization' token in the header, as well as a body request.
 
 
 ### Example Request Formats:
 - Add User POST http://localhost:8080/erts/users
+
 ```
 {"username":"userzero",
 "email":"user0@zero.net",
@@ -82,9 +82,11 @@ as well as a body request. Please see the documentation below in 'Request Format
 "password1":"abcD?1234!",
 "password2":"abcD?1234!"}
 ```
+
 - Get All Tickets GET /reimbursementSystem/reimbursements
   - Place 'authorization' token in header
-- Authenthicaton Request POST /reimbursementSystem/auth
+- Authenthicaton Request POST http://localhost:8080/erts/auth
+
 ```
 {
     "username": "userzero",

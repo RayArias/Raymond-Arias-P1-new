@@ -82,10 +82,8 @@ insert into reimbursement_statuses (status_id, status_text) values ('1889b06d-9a
 insert into users (id, username, email, given_name, surname, role_id, passwrd) values ('c26de9cb-cac3-401c-b324-3f7cd0b82845', 'erts-admin', 'admin@erts.net', 'System', 'Admin', '3a89e958-6504-4cb6-ac83-14c0af1b732e', 'pa55w0rd');
 insert into users (id, username, email, given_name, surname, role_id, passwrd, role_promotion_approved_by) values ('fe4827cb-ee69-43bb-8f6c-ae90a240cc72', 'erts-mngr', 'manager1@finanace.erts.net', 'Finance', 'Manager',
 			'240eebc4-1bcb-49be-b816-96c8d19f76fd', 'b1ah-b1aH', 'c26de9cb-cac3-401c-b324-3f7cd0b82845');
-insert into users (id, username, email, given_name, surname, role_id, passwrd) values ('82dcd163-59d7-4b32-8c63-ff9ff9239701', 'emplyee', 'employee1@dev.erts.com', 'John', 'Doe', '17083287-4167-4edb-abc0-ca8dec1c9152', 'b00!H00!');
 
 
--- Insert Sample Reimbursement Ticket
-insert into reimbursements (id, amount, description, type_id, status_id, submitted, submitter_id, resolved, resolver_id) values ('a97eccdf-616a-4940-901c-9e035e0f14e5', 200.00, 'cta bus fare', '5c7798a9-c3ee-4655-8841-afa43344161f',
-	'1889b06d-9aea-42bd-9d8a-d29993e4ff16', '2022-01-02 00:00:00', 'fe4827cb-ee69-43bb-8f6c-ae90a240cc72', '2022-01-02 09:00:00', 'c26de9cb-cac3-401c-b324-3f7cd0b82845');
+
+
 
