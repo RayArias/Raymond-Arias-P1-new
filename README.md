@@ -63,19 +63,7 @@ The ERTS database conforms to the 3NF (3rd Normal Form) because the data contain
 - **Postman** - Facilitates Communication of Commands and Data Using HTTP
 
 **Process**
-- **HTTP Request** (Postman)
-       ^
-       v
-- **JDBC**
-      ^
-      v
-- **Javalin**
-      ^
-      v
-- **API**
-      ^
-      v
-- **PostgreSQL Database**
+- **HTTP Request** (Postman) &harr; **JDBC** &harr; **Javalin** &harr; **API** &harr; **PostgreSQL Database**
 
 ![Process}(https://raw.githubusercontent.com/221114-Java-React/Raymond-Arias-P1-new/main/images/Web_App_Flow-02-01-1024x385.png)
 
