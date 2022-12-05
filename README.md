@@ -1,7 +1,6 @@
 # Employee Reimbursement Ticket System (ERTS)
 
 ## Project Description
-<-- **as a note, reimbursements and tickets are used interchangeably in these instructions* -->
 
 ERTS is a RESTful Application Program Interface (API) that facilitates company management Employee Reimbursement Tickets (ERTs), or requests for reembursement. This API also observes Level 2 of the Richardson API Maturity Model because it has Multiple URIs (Universal Resource Identifiers, strings of characters user to identify resources on computer networks) and verbs of HTTP (Hypertext Transfer Protocol, a set of rules for transferring files over the Internet) verbs (these are commands that are sent by one Internet resource to tell another Internet resource what to do).
 
