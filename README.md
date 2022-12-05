@@ -53,7 +53,7 @@ The ERTS database conforms to the 3NF (3rd Normal Form) because the data contain
 **Application Tier**
 - **Java 8** - Main Programming Language
 - **Apache Maven** - Dependency Manager
-- **JDBC** - Database Connectivity API
+- **JDBC** - Java DataBase Connectivity API
 - **Javalin** - Web Framework
 - **JSON Web Tokens** - HTTP Payload Encryption
 - **MessageDigest (SHA-256)** - Password Encryption
