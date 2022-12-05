@@ -22,7 +22,7 @@ The project is accomplished by having users with one of three roles that access 
 
 ### Project Design Specifications and Documents
 
-The ERTS database conforms to the 3NF (3rd Normal Form) because the data contained is
+The ERTS database conforms to the 3NF (3rd Normal Form) because the data contained is:
 * 1NF atomic, has unique identifiers (UUIDs),
 * 2NF no partial dependencies (no composite Keys)--all values have to be identified by a single column,
 * 3NF and columns are not dependent on anything but Primary Keys (no transitive dependencies).
@@ -98,6 +98,10 @@ The ERTS database conforms to the 3NF (3rd Normal Form) because the data contain
     "password": "abcD?1234!"
 }
 ```
+
+### Thanks to Elias for providing a template for this presentation.
+
+---
 
 ### Functional Requirements
 
