@@ -1,5 +1,7 @@
 package com.revature.erts;
 
+import com.revature.erts.intrfcs.ConsoleIF;
+
 import java.io.IOException;
 import java.util.Scanner;
 import java.lang.Integer;
@@ -28,37 +30,60 @@ public class MainDriver {
         disp("Enter choice: ");
         Scanner scanner = openCon();
         String choices = readln(scanner);
+        closeCon(scanner);
         newln();
 
         int choice = Integer.parseInt(choices);
         return choice;
     }
 
-    // clears the screen in java
-    public static void clrscr() { //Clears Screen in java
-        try {
-            if (System.getProperty("os.name").contains("Windows"))
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            else Runtime.getRuntime().exec("clear");
-        } catch (IOException | InterruptedException ex) {
-            ex.printStackTrace();
-        }
+    public static void clrscr() {
+
+        ConsoleIF cif = new ConsoleIF();
+        cif.clrscr();
+
     }
 
-    public static void displn(String msg) { System.out.println(msg); }
+    public static void displn(String line) {
 
-    public static void disp(String msg) { System.out.print(msg); }
+        ConsoleIF cif = new ConsoleIF();
+        cif.putln(line);
 
-    public static void newln() { System.out.println(); }
+    }
+
+    public static void disp(String word) {
+
+        ConsoleIF cif = new ConsoleIF();
+        cif.putwd(word);
+
+    }
+
+    public static void newln() {
+
+        ConsoleIF cif = new ConsoleIF();
+        cif.newln();
+
+    }
 
     public static Scanner openCon() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner;
+
+        ConsoleIF cif = new ConsoleIF();
+        return cif.open();
+
+    }
+
+    public static void closeCon(Scanner scanner) {
+
+        ConsoleIF cif = new ConsoleIF();
+        cif.close(scanner);
+
     }
 
     public static String readln(Scanner scanner) {
-        String output = scanner.nextLine();
-        return output;
+
+        ConsoleIF cif = new ConsoleIF();
+        return cif.readln(scanner);
+
     }
 
 }
