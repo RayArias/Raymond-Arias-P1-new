@@ -5,23 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b852f490-d5a4-4c9f-8514-cb2ab3540786" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/daos/CRUD_DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/daos/ReimbursementDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/daos/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/intrfcs/CRUD_IF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/intrfcs/FileIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/models/DatatypeCrossRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/models/Reimbursement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/models/ReimbursementStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/models/ReimbursementType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/models/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/utils/custom_exceptions/InvalidReimbursementStatusException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/utils/custom_exceptions/InvalidReimbursementTypeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/utils/custom_exceptions/InvalidUserException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/utils/custom_exceptions/InvalidUserRoleException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/MainDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/MainDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/models/Reimbursement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/models/Reimbursement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CLI/src/java/com/revature/erts/models/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
